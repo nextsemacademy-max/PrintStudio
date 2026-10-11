@@ -217,6 +217,18 @@ export const App: React.FC = () => {
     );
   };
 
+  const handleIncludePageNumbersChange = (val: boolean) => {
+    setPages((prev) =>
+      prev.map((p, idx) => (idx === activeIndex ? { ...p, includePageNumbers: val } : p))
+    );
+  };
+
+  const handleHeaderTitleChange = (val: string) => {
+    setPages((prev) =>
+      prev.map((p, idx) => (idx === activeIndex ? { ...p, headerTitle: val } : p))
+    );
+  };
+
   // Export & Print actions
   const handleExportPdf = async () => {
     if (pages.length === 0) return;
@@ -376,10 +388,14 @@ export const App: React.FC = () => {
                     marginMm={currentPage.marginMm}
                     fitMode={currentPage.fitMode}
                     rotation={currentPage.rotation}
+                    includePageNumbers={currentPage.includePageNumbers}
+                    headerTitle={currentPage.headerTitle}
                     onOrientationChange={handleOrientationChange}
                     onMarginChange={handleMarginChange}
                     onFitModeChange={handleFitModeChange}
                     onRotateClockwise={() => handleRotatePage(activeIndex)}
+                    onIncludePageNumbersChange={handleIncludePageNumbersChange}
+                    onHeaderTitleChange={handleHeaderTitleChange}
                   />
                 )}
 

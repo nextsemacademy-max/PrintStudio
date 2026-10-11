@@ -223,7 +223,9 @@ function applyPixelEnhancements(
 export async function renderPageToCanvas(
   page: PrintPage,
   targetDpi: DpiTarget,
-  scaleFactor: number = 1.0 // 1.0 for full DPI, < 1.0 for fast UI preview
+  scaleFactor: number = 1.0, // 1.0 for full DPI, < 1.0 for fast UI preview
+  pageIndex?: number,
+  totalPages?: number
 ): Promise<HTMLCanvasElement> {
   const effectiveOrientation = determineEffectiveOrientation(page);
   const fullDims = getA4PixelDimensions(targetDpi, effectiveOrientation);
@@ -304,6 +306,25 @@ export async function renderPageToCanvas(
   // Apply Sharpness / Unsharp Masking Kernel
   if (page.filters.sharpness > 0) {
     applyConvolutionSharpness(ctx, canvasWidth, canvasHeight, page.filters.sharpness / 100);
+  }
+
+  // Optional Document Stamps (Page numbers and Header Title)
+  if (page.includePageNumbers || page.headerTitle) {
+    const fontSize = Math.max(12, Math.round(28 * scaleFactor * (targetDpi / 300)));
+    ctx.font = `600 ${fontSize}px "Plus Jakarta Sans", sans-serif`;
+    ctx.fillStyle = '#64748b';
+
+    if (page.headerTitle) {
+      ctx.textAlign = 'center';
+      const headerY = Math.max(fontSize * 1.6, safeAreaY * 0.7);
+      ctx.fillText(page.headerTitle, canvasWidth / 2, headerY);
+    }
+
+    if (page.includePageNumbers && typeof pageIndex === 'number' && typeof totalPages === 'number') {
+      ctx.textAlign = 'center';
+      const footerY = Math.min(canvasHeight - fontSize * 0.8, canvasHeight - safeAreaY * 0.3);
+      ctx.fillText(`Page ${pageIndex + 1} of ${totalPages}`, canvasWidth / 2, footerY);
+    }
   }
 
   return canvas;

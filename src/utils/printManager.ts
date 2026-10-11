@@ -27,7 +27,7 @@ export async function triggerDirectPrint(
     }
 
     // Render at 300 DPI for physical printing
-    const canvas = await renderPageToCanvas(page, 300, 1.0);
+    const canvas = await renderPageToCanvas(page, 300, 1.0, i, pages.length);
     const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
 
     const pageWrapper = document.createElement('div');

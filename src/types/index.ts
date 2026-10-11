@@ -27,6 +27,8 @@ export interface PrintPage {
   enhancementPreset: EnhancementPreset;
   filters: PageFilters;
   targetDpi: DpiTarget;
+  includePageNumbers?: boolean;
+  headerTitle?: string;
   processedPreviewUrl?: string;
   isProcessing?: boolean;
 }

@@ -34,7 +34,7 @@ export async function generateAndDownloadA4Pdf(
     }
 
     // Render master high-DPI canvas (300 or 600 DPI)
-    const masterCanvas = await renderPageToCanvas(page, page.targetDpi, 1.0);
+    const masterCanvas = await renderPageToCanvas(page, page.targetDpi, 1.0, i, pages.length);
 
     const isBw = page.enhancementPreset === 'bw';
     const imageFormat = isBw ? 'PNG' : 'JPEG';
@@ -94,7 +94,7 @@ export async function exportPagesAsZip(
       });
     }
 
-    const masterCanvas = await renderPageToCanvas(page, page.targetDpi, 1.0);
+    const masterCanvas = await renderPageToCanvas(page, page.targetDpi, 1.0, i, pages.length);
     const isBw = page.enhancementPreset === 'bw';
     const extension = isBw ? 'png' : 'jpg';
     const mimeType = isBw ? 'image/png' : 'image/jpeg';

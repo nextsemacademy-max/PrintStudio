@@ -41,7 +41,7 @@ export const A4PreviewCanvas: React.FC<A4PreviewCanvasProps> = ({
     const render = async () => {
       try {
         // Render processed preview at ~1200px height for ultra fast 60fps feedback
-        const processed = await renderPageToCanvas(page, 300, 0.45);
+        const processed = await renderPageToCanvas(page, 300, 0.45, pageIndex, totalPages);
 
         // Also render original un-enhanced version if split-screen is enabled
         const originalPageConfig: PrintPage = {
@@ -105,6 +105,10 @@ export const A4PreviewCanvas: React.FC<A4PreviewCanvasProps> = ({
     page?.filters.whitening,
     page?.filters.binarizeThreshold,
     page?.targetDpi,
+    page?.includePageNumbers,
+    page?.headerTitle,
+    pageIndex,
+    totalPages,
   ]);
 
   // Handle Magnifier Movement

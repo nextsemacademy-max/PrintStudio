@@ -14,10 +14,14 @@ interface LayoutControlsProps {
   marginMm: number;
   fitMode: FitMode;
   rotation: number;
+  includePageNumbers?: boolean;
+  headerTitle?: string;
   onOrientationChange: (orientation: PageOrientation) => void;
   onMarginChange: (preset: MarginPreset, mm: number) => void;
   onFitModeChange: (mode: FitMode) => void;
   onRotateClockwise: () => void;
+  onIncludePageNumbersChange: (val: boolean) => void;
+  onHeaderTitleChange: (val: string) => void;
 }
 
 export const LayoutControls: React.FC<LayoutControlsProps> = ({
@@ -25,10 +29,14 @@ export const LayoutControls: React.FC<LayoutControlsProps> = ({
   marginPreset,
   fitMode,
   rotation,
+  includePageNumbers,
+  headerTitle,
   onOrientationChange,
   onMarginChange,
   onFitModeChange,
   onRotateClockwise,
+  onIncludePageNumbersChange,
+  onHeaderTitleChange,
 }) => {
   const marginPresets: { id: MarginPreset; label: string; mm: number; desc: string }[] = [
     { id: 'none', label: '0 mm', mm: 0, desc: 'Borderless' },
@@ -132,6 +140,32 @@ export const LayoutControls: React.FC<LayoutControlsProps> = ({
             <RotateCw size={15} />
             <span>Rotate {rotation}°</span>
           </button>
+        </div>
+      </div>
+
+      {/* Document Stamps (Header Title & Page Numbering) */}
+      <div className="control-group">
+        <label className="field-label">Document Stamps (Print Header & Footer):</label>
+        <div className="stamps-box">
+          <label className="stamp-checkbox-label">
+            <input
+              type="checkbox"
+              checked={!!includePageNumbers}
+              onChange={(e) => onIncludePageNumbersChange(e.target.checked)}
+              className="custom-checkbox"
+            />
+            <span>Print Page Numbers (e.g. Page 1 of 5)</span>
+          </label>
+
+          <div className="header-title-input-row">
+            <input
+              type="text"
+              placeholder="Header Title (e.g. BCS-111 Lecture Notes)"
+              value={headerTitle || ''}
+              onChange={(e) => onHeaderTitleChange(e.target.value)}
+              className="custom-text-input"
+            />
+          </div>
         </div>
       </div>
     </div>
