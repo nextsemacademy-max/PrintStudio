@@ -1,8 +1,8 @@
 # Session Archive: A4 Print Studio — HD Image & PDF Print Upscaler Website & Android App
 
 **Date:** October 11, 2026  
-**Project:** `notes-from-pdf` (`c:\Users\nextsem\Documents\notes-from-pdf`)  
-**Package Name:** `online.nextsem.notesfrompdf`  
+**Project:** `printstudio` (`c:\Users\nextsem\Documents\notes-from-pdf`)  
+**Package Name:** `online.nextsem.printstudio`  
 **Framework:** Vite + React + TypeScript + Capacitor Android  
 
 ---
