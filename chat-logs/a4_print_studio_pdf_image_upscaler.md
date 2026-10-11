@@ -1,7 +1,7 @@
 # Session Archive: A4 Print Studio — HD Image & PDF Print Upscaler Website & Android App
 
 **Date:** October 11, 2026  
-**Project:** `printstudio` (`c:\Users\nextsem\Documents\notes-from-pdf`)  
+**Project:** `printstudio` (`c:\Users\nextsem\Documents\PrintStudio`)  
 **Package Name:** `online.nextsem.printstudio`  
 **Framework:** Vite + React + TypeScript + Capacitor Android  
 
@@ -40,7 +40,7 @@ The user requested to build a **website and an Android app** to generate **A4 si
 ---
 
 ## 📱 Android Build & Compiled APK
-- **Compiled Local Debug APK Path:** `c:\Users\nextsem\Documents\notes-from-pdf\android\app\build\outputs\apk\debug\app-debug.apk` (Size: 5.12 MB)
+- **Compiled Local Debug APK Path:** `c:\Users\nextsem\Documents\PrintStudio\android\app\build\outputs\apk\debug\app-debug.apk` (Size: 5.12 MB)
 - **Automated GitHub Actions APK:** Automatically builds on every push to `main` via `.github/workflows/android.yml`.
 
 ---
@@ -57,3 +57,10 @@ The user requested to build a **website and an Android app** to generate **A4 si
   - Interactive toggle to print official page numbers (`Page X of Y`) on bottom margin.
   - Custom header title input (e.g. course code, student name, lecture title) rendered cleanly on top margin.
   - Fully integrated across canvas preview, PDF exporter, and direct printer spooler.
+
+---
+
+## 📁 Project Directory Renamed to PrintStudio
+- **Directory Migration:** Successfully renamed from `c:\Users\nextsem\Documents\notes-from-pdf` to `c:\Users\nextsem\Documents\PrintStudio`.
+- **Git Repository:** Branch `main` tracking `https://github.com/nextsemacademy-max/PrintStudio.git`.
+- **Compatibility:** Windows directory junction maintained for seamless backward-compatible IDE workspace resolution.
