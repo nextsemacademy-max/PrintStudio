@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🖨️ A4 Print Studio (PrintCraft HD)
+# 🖨️ PrintStudio
 ### Ultra-Sharp 300/600 DPI Image & PDF Print Upscaler for Web & Android
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square&logo=github)](https://github.com)
@@ -25,7 +25,7 @@ When students or professionals try to print lecture notes or documents taken wit
 2. **Muddy Background Shadows**: Uneven desk lighting and hand shadows waste toner ink and look dirty on physical paper.
 3. **Mismatched Page Dimensions**: Documents print with clipped margins or awkward scaling.
 
-**A4 Print Studio** solves all three with an in-browser WebGL & Canvas pipeline that runs **100% on-device** with zero server uploads.
+**PrintStudio** solves all three with an in-browser WebGL & Canvas pipeline that runs **100% on-device** with zero server uploads.
 
 ---
 

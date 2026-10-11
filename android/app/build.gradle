@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "online.nextsem.notesfrompdf"
+    namespace = "online.nextsem.printstudio"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "online.nextsem.notesfrompdf"
+        applicationId "online.nextsem.printstudio"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -15,7 +15,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
         <div className="modal-header">
           <div className="modal-title-with-icon">
             <Sparkles size={20} className="icon-gold" />
-            <h3>A4 Print Studio Guide & Best Practices</h3>
+            <h3>PrintStudio Guide & Best Practices</h3>
           </div>
           <button className="modal-close-btn" onClick={onClose} aria-label="Close dialog">
             <X size={18} />

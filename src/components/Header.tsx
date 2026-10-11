@@ -36,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
         <div className="brand-text">
           <div className="brand-title">
-            <span>A4</span> Print Studio
+            <span>Print</span>Studio
           </div>
           <div className="brand-tagline">HD Image & PDF Print Upscaler</div>
         </div>

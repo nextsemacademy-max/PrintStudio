@@ -1,6 +1,6 @@
-# Contributing to A4 Print Studio
+# Contributing to PrintStudio
 
-Thank you for your interest in contributing to **A4 Print Studio**! We welcome bug reports, feature suggestions, and code contributions.
+Thank you for your interest in contributing to **PrintStudio**! We welcome bug reports, feature suggestions, and code contributions.
 
 ---
 

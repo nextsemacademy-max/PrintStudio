@@ -1,4 +1,4 @@
-package online.nextsem.notesfrompdf;
+package online.nextsem.printstudio;
 
 import com.getcapacitor.BridgeActivity;
 
