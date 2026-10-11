@@ -39,17 +39,21 @@ The user requested to build a **website and an Android app** to generate **A4 si
 
 ---
 
-## 📱 Android Build Instructions
+## 📱 Android Build & Compiled APK
+- **Compiled Local Debug APK Path:** `c:\Users\nextsem\Documents\notes-from-pdf\android\app\build\outputs\apk\debug\app-debug.apk` (Size: 5.12 MB)
+- **Automated GitHub Actions APK:** Automatically builds on every push to `main` via `.github/workflows/android.yml`.
 
-```bash
-# Sync web changes to Android platform
-npm run cap:sync
+---
 
-# Open in Android Studio
-npm run cap:open
+## 🌐 GitHub Pages Live Deployment
+- **Repository:** `https://github.com/nextsemacademy-max/PrintStudio`
+- **Live URL Target:** `https://nextsemacademy-max.github.io/PrintStudio/`
+- **Deployment Workflow:** `.github/workflows/deploy.yml` (triggers on push to `main`).
 
-# When requested, assemble debug APK
-cd android
-./gradlew assembleDebug
-```
-Output APK path: `android/app/build/outputs/apk/debug/app-debug.apk`.
+---
+
+## 🌟 New Features Added
+- **Document Stamps (Print Header & Footer):**
+  - Interactive toggle to print official page numbers (`Page X of Y`) on bottom margin.
+  - Custom header title input (e.g. course code, student name, lecture title) rendered cleanly on top margin.
+  - Fully integrated across canvas preview, PDF exporter, and direct printer spooler.
