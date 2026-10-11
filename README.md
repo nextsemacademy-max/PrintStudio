@@ -1,81 +1,128 @@
-# A4 Print Studio — HD Image & PDF Print Upscaler
+<div align="center">
 
-A modern, high-performance web and native Android application designed to convert, upscale, and clean images and low-resolution PDFs into razor-sharp, print-ready **A4 standard documents (210 × 297 mm)** at **300 DPI (2480 × 3508 px)** and **600 DPI (4960 × 7016 px)**.
+# 🖨️ A4 Print Studio (PrintCraft HD)
+### Ultra-Sharp 300/600 DPI Image & PDF Print Upscaler for Web & Android
 
----
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square&logo=github)](https://github.com)
+[![Platform](https://img.shields.io/badge/platform-Web%20%7C%20Android-blue?style=flat-square&logo=android)](https://github.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![Framework](https://img.shields.io/badge/Vite-8.3-646CFF?style=flat-square&logo=vite)](https://vitejs.dev)
+[![Capacitor](https://img.shields.io/badge/Capacitor-8.5-119EFF?style=flat-square&logo=capacitor)](https://capacitorjs.com)
+[![Print Standard](https://img.shields.io/badge/Standard-A4%20(210%C3%97297mm)-emerald?style=flat-square&logo=speedtest)](https://github.com)
 
-## 🌟 Key Features
+**Transform blurry phone photos, textbook scans, and low-res PDFs into razor-sharp, print-ready A4 documents with automatic shadow removal, paper whitening, and margin optimization.**
 
-### 1. Hybrid Upscaling & Document Cleaning Engine
-- **300 & 600 DPI High-DPI Upscaler**: Resamples input images and low-resolution PDFs using multi-pass interpolation and unsharp masking (convolutional edge sharpening) so fine letters and diagrams print with crystal clarity.
-- **Magic Document Scan (Shadow Removal)**: Automatically levels paper backgrounds to pure `#ffffff`, eliminating camera phone shadows, room lighting gradients, and yellow paper tints while preserving vibrant colored inks (blue/red annotations, highlighters).
-- **Sharp B&W (Laser Print / Ink Saver)**: Dynamic adaptive binarization for laser printers and Xerox copiers, eliminating gray toner grain and saving ink.
-- **True Color HD**: Enhanced tonal curves for photos, certificates, and colored diagrams.
-- **Crisp Grayscale**: Balanced monochrome output.
-- **Custom Sliders**: Text Sharpness, Paper Whitening, Brightness, Contrast, and Ink Threshold.
+[Live Web Demo](#-getting-started) • [Key Features](#-core-capabilities) • [Android App](#-android-application) • [Architecture](#-architecture)
 
-### 2. A4 Page Geometry & Layout Precision
-- **Standard A4 Dimensions**: Exact $210 \times 297\text{ mm}$ page framing.
-- **Orientation Control**: Auto-detect, Portrait, or Landscape.
-- **Printable Margins**:
-  - `0 mm` (Borderless printing)
-  - `5 mm` (Standard home printer safe margin)
-  - `10 mm` (Clean document margin)
-  - `15 mm` (Filing, ring binder, and hole-punch margin)
-- **Fit & Placement Modes**:
-  - *Fit Entire Document*: Guarantees 100% visibility within safe margins.
-  - *Fill Sheet*: Edge-to-edge coverage.
-- **Rotation**: 0°, 90°, 180°, and 270°.
-
-### 3. Multi-Page Workflow & Sequencing
-- Drag-and-drop or batch ingestion of multiple images and multi-page PDFs.
-- Reorder pages with sequence controls.
-- Rotate, duplicate, or delete individual pages.
-- **"Apply Settings to All"**: Propagate filters and margins across the entire document in 1 click.
-
-### 4. Interactive A4 Print Inspector
-- **Split-Screen Before / After Comparison**: Interactive slider to inspect original vs. upscaled results.
-- **3.5x Magnifier Loupe Tool**: Hover or touch anywhere to inspect individual letterforms before printing.
-- **Millimeter Grid Rulers**: Accurate 0–210mm and 0–297mm ruler overlays.
-
-### 5. Multi-Channel Export & Print
-- **Export A4 PDF**: Creates a standards-compliant multi-page 300/600 DPI PDF via `jsPDF`.
-- **Direct System Print**: Triggers native browser / Android system print spooler with exact `@page { size: A4; margin: 0; }` CSS.
-- **Export High-DPI Images (ZIP)**: Download high-resolution PNG/JPG archives.
-
-### 6. 100% Private & Client-Side
-- All image and PDF processing runs strictly in-memory on the device via WebGL and Canvas. Zero documents are ever sent to an external server.
+</div>
 
 ---
 
-## 🚀 Running Locally
+## 📌 The Problem This Solves
 
-```bash
-# Start development server
-npm run dev
+When students or professionals try to print lecture notes or documents taken with phone cameras:
+1. **Low Print Resolution (72–96 DPI)**: Standard screen photos print pixelated, blurry, and hard to read.
+2. **Muddy Background Shadows**: Uneven desk lighting and hand shadows waste toner ink and look dirty on physical paper.
+3. **Mismatched Page Dimensions**: Documents print with clipped margins or awkward scaling.
 
-# Build production bundle
-npm run build
+**A4 Print Studio** solves all three with an in-browser WebGL & Canvas pipeline that runs **100% on-device** with zero server uploads.
+
+---
+
+## 🌟 Core Capabilities
+
+| Feature | Description | Benefit |
+| :--- | :--- | :--- |
+| **300 & 600 DPI Upscaler** | High-fidelity canvas resampling + unsharp masking | Razor-sharp text, formulas, and fine lines on paper |
+| **🪄 Magic Document Scan** | Adaptive background leveling & shadow elimination | Turns muddy yellow paper into clean pure white `#ffffff` |
+| **⚡ Sharp B&W (Ink Saver)** | Adaptive binarization / Otsu thresholding | Eliminates toner fuzz; perfect for office laser printing |
+| **📐 Precise A4 Layout** | Strict $210 \times 297\text{ mm}$ geometry with 0–15mm margins | Prevents clipped text and leaves binder filing space |
+| **🔍 Interactive Inspector** | Before/After split comparison & 3.5x magnifier loupe | Inspect fine character details before sending to printer |
+| **📑 Multi-Page Ingestion** | Combine photos and multi-page PDFs in 1 document | Reorder, rotate, duplicate, and "Apply to All" in 1 click |
+| **🔒 100% Private & Offline** | Client-side memory execution via WebGL & Canvas | No server costs, zero latency, 100% privacy |
+
+---
+
+## 🏗️ Architecture & Technology Stack
+
+```mermaid
+graph TD
+    A[Inputs: Phone Photos / Low-Res PDFs] --> B[High-DPI Extraction: pdfjs-dist / Canvas Loader]
+    B --> C[Hybrid Upscaling & Enhancement Engine]
+    C --> D[Multi-Pass Resampling: 300 / 600 DPI]
+    C --> E[Unsharp Masking: 3x3 Convolution Kernel]
+    C --> F[Magic Scanner: Shadow Removal & Whitening]
+    C --> G[Adaptive Binarization: Sharp B&W]
+    D & E & F & G --> H[A4 Geometry Engine: 210x297mm + Margins]
+    H --> I[Interactive A4 Inspector: Split View & Loupe]
+    I --> J1[Direct Print: @media print A4 Engine]
+    I --> J2[Export Vector A4 PDF: jsPDF Engine]
+    I --> J3[Batch Images ZIP: JSZip]
 ```
 
-- **Local Web**: `http://localhost:5180/`
-- **Mobile Wi-Fi Testing**: `http://192.168.29.175:5180/`
+- **Frontend Core**: React 19 + TypeScript + Vite.
+- **Styling**: Vanilla CSS Design System with dark mode glassmorphism, responsive mobile layouts, and strict `@media print` rules.
+- **PDF Extraction**: `pdfjs-dist` (supersampled rendering at 2.5x scale).
+- **PDF Generation**: `jspdf` (multi-page high-DPI A4 compilation).
+- **Native Android Wrapper**: `@capacitor/core`, `@capacitor/cli`, `@capacitor/android` with Camera and Media permissions.
 
 ---
 
-## 📱 Android App (Capacitor)
+## 🚀 Getting Started
 
-The Android app is fully configured in the `android/` directory:
+### Prerequisites
+- Node.js `v18+` (v20+ recommended)
+- npm `v9+`
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Open [http://localhost:5180](http://localhost:5180) in your browser.
+
+---
+
+## 📱 Android Application (Capacitor)
+
+The repository includes a ready-to-build native Android project inside `android/`:
 
 ```bash
-# Sync web changes to Android project
+# 1. Build web application and sync with Android
 npm run cap:sync
 
-# Open Android project in Android Studio
+# 2. Open project in Android Studio
 npm run cap:open
 
-# Or build debug APK directly (when requested)
+# 3. Or build debug APK directly via command line
 cd android
 ./gradlew assembleDebug
 ```
-The output APK will be generated at `android/app/build/outputs/apk/debug/app-debug.apk`.
+
+The compiled APK will be generated at:
+`android/app/build/outputs/apk/debug/app-debug.apk`
+
+---
+
+## 📜 Available Scripts
+
+- `npm run dev`: Starts the Vite dev server with network exposure (`--host`).
+- `npm run build`: Compiles TypeScript and builds the production web bundle into `dist/`.
+- `npm run preview`: Previews the production build locally.
+- `npm run cap:sync`: Compiles web assets and synchronizes them into the Android project.
+- `npm run cap:open`: Launches the Android project in Android Studio.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+Distributed freely for personal and commercial use.
