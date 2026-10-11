@@ -3,12 +3,12 @@
 # 🖨️ PrintStudio
 ### Ultra-Sharp 300/600 DPI Image & PDF Print Upscaler for Web & Android
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square&logo=github)](https://github.com)
-[![Platform](https://img.shields.io/badge/platform-Web%20%7C%20Android-blue?style=flat-square&logo=android)](https://github.com)
+[![CI](https://github.com/nextsemacademy-max/PrintStudio/actions/workflows/ci.yml/badge.svg)](https://github.com/nextsemacademy-max/PrintStudio/actions)
+[![Platform](https://img.shields.io/badge/platform-Web%20%7C%20Android-blue?style=flat-square&logo=android)](https://github.com/nextsemacademy-max/PrintStudio)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Framework](https://img.shields.io/badge/Vite-8.3-646CFF?style=flat-square&logo=vite)](https://vitejs.dev)
 [![Capacitor](https://img.shields.io/badge/Capacitor-8.5-119EFF?style=flat-square&logo=capacitor)](https://capacitorjs.com)
-[![Print Standard](https://img.shields.io/badge/Standard-A4%20(210%C3%97297mm)-emerald?style=flat-square&logo=speedtest)](https://github.com)
+[![Print Standard](https://img.shields.io/badge/Standard-A4%20(210%C3%97297mm)-emerald?style=flat-square&logo=speedtest)](https://github.com/nextsemacademy-max/PrintStudio)
 
 **Transform blurry phone photos, textbook scans, and low-res PDFs into razor-sharp, print-ready A4 documents with automatic shadow removal, paper whitening, and margin optimization.**
 
@@ -77,8 +77,8 @@ graph TD
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/nextsemacademy-max/PrintStudio.git
+cd PrintStudio
 
 # Install dependencies
 npm install

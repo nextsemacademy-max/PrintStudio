@@ -8,8 +8,8 @@ Thank you for your interest in contributing to **PrintStudio**! We welcome bug r
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/<your-username>/<repo-name>.git
-   cd <repo-name>
+   git clone https://github.com/nextsemacademy-max/PrintStudio.git
+   cd PrintStudio
    ```
 
 2. **Install dependencies**:
